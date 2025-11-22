@@ -32,7 +32,7 @@ mcp:
 
     # Web fetch server
     fetch:
-      command: /Users/rokas/.local/bin/uvx
+      command: uvx
       args: ["mcp-server-fetch"]
       #env:  # Environment variables passed to the stdio server
       #  ROOT_PATH: "/workspace"
