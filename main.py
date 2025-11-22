@@ -23,8 +23,8 @@ from mcp_agent.agents.agent_spec import AgentSpec
 from mcp_agent.core.context import Context as AppContext
 from mcp_agent.workflows.factory import create_agent
 
-# We are using the OpenAI augmented LLM for this example but you can swap with others (e.g. AnthropicAugmentedLLM)
-from mcp_agent.workflows.llm.augmented_llm_openai import OpenAIAugmentedLLM
+# We are using the Google Gemini augmented LLM
+from mcp_agent.workflows.llm.augmented_llm_google import GoogleAugmentedLLM
 
 # Create the MCPApp, the root of mcp-agent.
 app = MCPApp(
@@ -58,12 +58,12 @@ async def finder_agent(request: str, app_ctx: Optional[AppContext] = None) -> st
             "You are a helpful assistant. Use MCP servers to fetch and read files,"
             " then answer the request concisely."
         ),
-        server_names=["fetch", "filesystem"],
+        server_names=["fetch"],
         context=app_ctx,
     )
 
     async with agent:
-        llm = await agent.attach_llm(OpenAIAugmentedLLM)
+        llm = await agent.attach_llm(GoogleAugmentedLLM)
         result = await llm.generate_str(message=request)
         return result
 
@@ -114,7 +114,7 @@ async def run_agent(
     agent = create_agent(agent_spec, context=app_ctx)
 
     async with agent:
-        llm = await agent.attach_llm(OpenAIAugmentedLLM)
+        llm = await agent.attach_llm(GoogleAugmentedLLM)
         return await llm.generate_str(message=prompt)
 
 
@@ -122,10 +122,10 @@ async def main():
     async with app.run() as agent_app:
         # Run the agent
         readme_summary = await finder_agent(
-            request="Please summarize the README.md file in this directory.",
+            request="Please summarize https://github.com/lastmile-ai/mcp-agent",
             app_ctx=agent_app.context,
         )
-        print("README.md file summary:")
+        print("mcp-agent repo summary:")
         print(readme_summary)
 
         webpage_summary = await run_agent(
