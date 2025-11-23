@@ -1,0 +1,4 @@
+mcp_agent[google]==0.2.5
+aiohttp
+pymongo
+python-dotenv

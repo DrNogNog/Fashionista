@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Full-screen background using your fashion.jpg */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: url('/src/assets/fashion.jpg') center/cover no-repeat fixed;
+  min-height: 100vh;
+}
+
+/* Dark overlay so text stays readable */
+#root::before {
+  display: none;
+}
+
+/* Ensure all content appears above the overlay */
+#root > div {
+  position: relative;
+  z-index: 2;
+}

@@ -1,0 +1,40 @@
+name: fashion_recommender
+description: Real-time multimodal fashion recommender
+host: 0.0.0.0
+port: 8000
+logging:
+  level: info
+entrypoint: main.py
+tools:
+  - module: fashion_agent
+    function: fashion_recommendation_tool
+    name: fashion_recommendation_tool
+    description: Takes an image and returns fashion recommendations
+    arguments:
+      image_bytes:
+        type: bytes
+        description: JPEG/PNG image bytes of clothing
+      user_id:
+        type: str
+        optional: true
+        description: Optional user ID
+      context_info:
+        type: dict
+        optional: true
+        description: Optional dictionary with context, e.g., budget
+      app_ctx:
+        type: object
+        optional: true
+        description: Internal MCP app context
+    returns:
+      type: dict
+      description: Recommendations and session ID
+      properties:
+        session_id:
+          type: str
+          description: Unique session identifier
+        recommendations:
+          type: array
+          items:
+            type: object
+          description: List of recommended fashion items

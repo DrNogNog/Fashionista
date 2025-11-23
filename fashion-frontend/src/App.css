@@ -1,0 +1,302 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.background-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* full viewport height */
+  background-image: url('your-image.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Common button styling */
+button {
+  position: absolute; /* relative to container */
+  width: 120px;
+  height: 50px;
+  font-size: 16px;
+  top: 66%; /* vertical middle */
+  transform: translateY(-50%); /* truly center vertically */
+}
+
+.button-one {
+  position: absolute; /* needed for 'left' to work */
+  top: 66%;           /* vertical placement */
+  left: 15%;          /* horizontal placement */
+  width: 120px;       /* button width */
+  height: 50px;       /* button height */
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, #8b5cf6, #ec4899);
+  color: white;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+/* Right middle button */
+.button-two {
+  right: 15%; /* adjust distance from right edge */
+}
+/* Title container with purple background */
+.title-box {
+  background-color: #6b21a8; /* purple */
+  padding: 2rem 3rem;
+  border-radius: 1rem; /* rounded corners */
+  display: inline-block; /* so the box wraps content */
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Gradient text for h1 */
+.title-text {
+  font-size: 3rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #d8b4fe, #fbcfe8, #d8b4fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+/* Subtitle styling */
+.subtitle-text {
+  font-size: 1.25rem;
+  color: #f3f4f6; /* light gray */
+  margin-top: 0.5rem;
+}
+/* Title box */
+.title-box {
+  background-color: rgba(128, 0, 128, 0.7); /* purple box */
+  border-radius: 1.5rem;
+  padding: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.title-text {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+}
+
+.subtitle-text {
+  color: #e0d7f7;
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* Upload button */
+.button-one {
+  display: inline-block;
+  background-color: #7c3aed;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s;
+}
+
+.button-one:hover {
+  transform: scale(1.05);
+}
+
+/* Bottom button */
+.button-two {
+  display: block;
+  margin: 2rem auto 0;
+  background-color: #7c3aed;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s;
+}
+
+.button-two:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.button-two:hover:enabled {
+  transform: scale(1.05);
+}
+
+/* Carousel container */
+.carousel-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem 0;
+  scroll-behavior: smooth;
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Carousel items */
+.carousel-item {
+  min-width: 250px;
+  background-color: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 1rem;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s;
+}
+
+.carousel-item:hover {
+  transform: scale(1.05);
+}
+
+.image-wrapper {
+  width: 100%;
+  height: 180px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(128,128,128,0.2);
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.no-image {
+  color: #ccc;
+  font-weight: bold;
+  text-align: center;
+}
+
+.carousel-item h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0.5rem 0 0.25rem 0;
+}
+
+.carousel-item p {
+  color: #d8b4fe;
+  margin: 0;
+}
+
+.price-link {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 0.75rem;
+  font-weight: bold;
+}
+
+.price-link a {
+  color: #f472b6;
+  text-decoration: none;
+}
+
+.price-link a:hover {
+  text-decoration: underline;
+}
+/* Carousel wrapper to position arrows */
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+/* Carousel arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(124, 58, 237, 0.8);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-arrow {
+  left: 0.5rem;
+}
+
+.right-arrow {
+  right: 0.5rem;
+}
+
+.carousel-arrow:hover {
+  background-color: rgba(124, 58, 237, 1);
+}
